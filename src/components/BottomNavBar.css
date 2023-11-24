@@ -1,0 +1,30 @@
+/*https://www.youtube.com/watch?v=58RRl1JTJvY - accessed 24/09/2021*/
+a.social:hover{
+    transform: translate(-2px);
+  }
+  
+  /*https://www.youtube.com/watch?v=58RRl1JTJvY - accessed 24/09/2021*/
+  a.youtube{
+    color: #eb3223;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  /*https://www.youtube.com/watch?v=58RRl1JTJvY - accessed 24/09/2021*/
+  a.facebook{
+    color: #4968ad;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  /*https://www.youtube.com/watch?v=58RRl1JTJvY - accessed 24/09/2021*/
+  a.twitter{
+    color: #49a1eb;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  a.instagram{
+    color: black;
+    margin-left: 10px;
+  }
