@@ -14,7 +14,7 @@ function App() {
         <Header />     
         <NavMenu />
           <Routes>
-            <Route exact={true} path="/" element={<ToxinList/>} />
+            <Route exact={true} path="/toxins" element={<ToxinList/>} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/create" element={<Create />} />      
           </Routes> 
