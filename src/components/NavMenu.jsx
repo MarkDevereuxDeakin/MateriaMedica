@@ -1,6 +1,8 @@
 //https://react.semantic-ui.com/collections/menu/#types-tabular-on-top - accessed 22/09/2021
 import React, { Component } from 'react'
-import {Menu} from 'semantic-ui-react'
+import {Menu, Segment} from 'semantic-ui-react'
+import ToxinList from './ToxinList.jsx'
+import Background from '../img/background.jpg'
 import '../index.js'
 import './NavMenu.css'
 
@@ -27,6 +29,13 @@ export default class MenuExampleTabularOnTop extends Component {
             onClick={this.handleItemClick}
           />         
         </Menu>
+        <Segment attached='bottom'>
+          {activeItem === 'Plant Toxins' ?
+          <ToxinList />
+          :
+          <img src={Background} alt='Apothecary'/>
+          }
+        </Segment>
       </div>
     )
   }

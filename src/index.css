@@ -1,13 +1,19 @@
 body {
-    background-image: url('./img/background.jpg');
+    /*background-image: url('./img/background.jpg');*/
     background-size: cover;
     background-position: top right;
     background-blend-mode: multiply;
+    background-color:black;
 }
 
 body {
     width: 75%;
+    height: 100%;
     margin: auto;
+}
+
+img{
+    width:100%;
 }
 
 .pagination-bar {
@@ -17,9 +23,8 @@ body {
   }
 
 .container {
-    padding: 10% 10%;
-    background-color: transparent;
-    
+    margin-top: 5%;
+    background-color: transparent;    
 }
 
 .header {
@@ -32,11 +37,9 @@ body {
 
 .table {
     background-color: #FFFFFF;
+    padding-top: 10px;
     text-align: center;
-    table-layout: auto; 
-    width: 100%;
-    border-collapse: collapse; 
-    border: 1px solid black;
+    width: 100%;   
     
 }
 

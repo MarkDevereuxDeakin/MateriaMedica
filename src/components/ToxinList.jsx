@@ -14,25 +14,13 @@ const Toxin = (props) => (
         <td>{props.toxin.AnimalToxicity}</td>                
     </tr>
 );
- /**<td>
-    <Link className="btn btn-link" to={`/edit/${props.toxin._id}`}>Edit</Link> |
-        <button className="btn btn-link"
-        onClick={() => {
-            props.deleteToxin(props.toxin._id);
-        }}
-        >
-        Delete
-        </button>
-    </td>  
-    <Pagination
-                    */
 
     export default function ToxinList() {
-        const [toxins, setToxins] = useState ([]); 
-               
+        const [toxins, setToxins] = useState ([]);
+                      
         //this method fetches the list from the database.
         useEffect(() => {
-            async function getToxins(){
+           async function getToxins (){
                 try {              
 
                     const response = await fetch(`http://localhost:5000/toxins`, {
@@ -81,20 +69,14 @@ const Toxin = (props) => (
                         /> 
                     );
             });
-        }
-        /*const Toxin = useMemo(() => {
-                
-            const firstPageIndex = (currentPage - 1) * PageSize;
-            const lastPageIndex = firstPageIndex + PageSize;
-            return  toxins.slice(firstPageIndex, lastPageIndex);
-        }, [currentPage]);*/
+        }       
 
         //this following section will display the table with the toxins
         return (       
             <div className='table'> 
-                <h3>Toxin List</h3>
-                    <table className="table table-striped" style={{ marginTop: 20 }}>
-                        <thead>
+                <h1>Toxin List</h1>
+                    <table name='Plant Toxins' action="http://localhost:5000/toxins" className="table table-striped" style={{ marginTop: 20 }}>
+                        <thead> 
                             <tr>                                            
                                 <th>Latin Name</th>
                                 <th>Common Name</th>
@@ -109,7 +91,7 @@ const Toxin = (props) => (
                             </tr>
                         </thead>
                     <tbody>{toxinList()}</tbody>
-                </table>
+                </table>                
             </div>                                                                               
                        
     );
