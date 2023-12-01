@@ -29,11 +29,7 @@ export default class MenuExampleTabularOnTop extends Component {
             onClick={this.handleItemClick}
           />        
         </Menu>        
-        {activeItem === 'Plant Toxins' ?       
-        <ToxinList />
-        :
-        <img src={Background} alt='Apothecary'/>
-        }        
+        {activeItem === 'Plant Toxins' ? <ToxinList className='table'/> : <ToxinList className='non-table'/>}        
       </div>
     )
   }

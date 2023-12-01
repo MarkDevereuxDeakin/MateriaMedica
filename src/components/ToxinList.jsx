@@ -5,20 +5,20 @@ import ReactPaginate from 'react-paginate';
 
 const Toxin = (props) => (
     <tr>            
-        <td truncate>{props.toxin.LatinName}</td>
-        <td truncate>{props.toxin.CommonName}</td>
-        <td truncate>{props.toxin.Distribution}</td>
-        <td truncate>{props.toxin.Location}</td>
-        <td truncate>{props.toxin.ToxicPart}</td>
-        <td truncate>{props.toxin.Phytotoxin}</td>
-        <td truncate>{props.toxin.RelativeToxicity}</td>
-        <td truncate>{props.toxin.PredictedLD50}</td>
-        <td truncate>{props.toxin.HumanToxicity}</td>
-        <td truncate>{props.toxin.AnimalToxicity}</td>                
+        <td >{props.toxin.LatinName}</td>
+        <td >{props.toxin.CommonName}</td>
+        <td >{props.toxin.Distribution}</td>
+        <td >{props.toxin.Location}</td>
+        <td >{props.toxin.ToxicPart}</td>
+        <td >{props.toxin.Phytotoxin}</td>
+        <td >{props.toxin.RelativeToxicity}</td>
+        <td >{props.toxin.PredictedLD50}</td>
+        <td >{props.toxin.HumanToxicity}</td>
+        <td >{props.toxin.AnimalToxicity}</td>                
     </tr>
 );
 
-    export default function ToxinList() {
+    export default function ToxinList(props) {
         const [toxins, setToxins] = useState ([]);
         const [currentPage, setCurrentPage] = useState(0);
         const [totalPages, setTotalPages] = useState(0);
@@ -79,7 +79,7 @@ const Toxin = (props) => (
         function toxinList() {
             return subset.map((toxin) => {
                     return (                        
-                            <Toxin
+                            <Toxin                            
                             toxin={toxin}
                             key={toxin._id}             
                             /> 
@@ -90,9 +90,9 @@ const Toxin = (props) => (
 
         //this following section will display the table with the toxins
         return (       
-            <div className='table'>
-                <h1>Toxin List</h1>
-                    <table name='Plant Toxins' action="http://localhost:5000/toxins" className="table table-striped" style={{ marginTop: 20 }}>
+            <div className={props.className} >
+                <h2>Toxin List</h2>
+                    <table name='Plant Toxins' action="http://localhost:5000/toxins" className={props.className} style={{ marginTop: 20 }}>
                         <thead> 
                             <tr>                                            
                                 <th>Latin Name</th>
@@ -109,21 +109,21 @@ const Toxin = (props) => (
                         </thead>
                     <tbody > {toxinList()}</tbody>                                    
                 </table>               
-                    <ReactPaginate
-                            className="pagination-container"
-                            pageClassName ='pagination-item'
-                            breakLabel="..."
-                            previousLabel={"< Previous"}
-                            nextLabel={"Next >"}
-                            previousClassName='pagination-item'
-                            nextClassName='pagination-item'
-                            breakClassName='pagination-item'
-                            pageRangeDisplayed={3}                           
-                            pageCount={totalPages}
-                            onPageChange={handlePageChange}
-                            forcePage={currentPage}
-                            renderOnZeroPageCount={null}
-                        />
+                <ReactPaginate
+                        className="pagination-container"
+                        pageClassName ='pagination-item'
+                        breakLabel="..."
+                        previousLabel={"< Previous"}
+                        nextLabel={"Next >"}
+                        previousClassName='pagination-item'
+                        nextClassName='pagination-item'
+                        breakClassName='pagination-item'
+                        pageRangeDisplayed={3}                           
+                        pageCount={totalPages}
+                        onPageChange={handlePageChange}
+                        forcePage={currentPage}
+                        renderOnZeroPageCount={null}
+                    />
             </div>                                                                               
                        
     );
