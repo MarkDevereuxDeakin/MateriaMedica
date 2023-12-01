@@ -27,15 +27,13 @@ export default class MenuExampleTabularOnTop extends Component {
             name='Plant Toxins'
             active={activeItem === 'Plant Toxins'}
             onClick={this.handleItemClick}
-          />         
-        </Menu>
-        <Segment attached='bottom'>
-          {activeItem === 'Plant Toxins' ?
-          <ToxinList />
-          :
-          <img src={Background} alt='Apothecary'/>
-          }
-        </Segment>
+          />        
+        </Menu>        
+        {activeItem === 'Plant Toxins' ?       
+        <ToxinList />
+        :
+        <img src={Background} alt='Apothecary'/>
+        }        
       </div>
     )
   }
