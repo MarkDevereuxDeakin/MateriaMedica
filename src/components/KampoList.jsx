@@ -1,36 +1,33 @@
 import React, { useEffect, useState} from 'react';
-import Background from '../img/background.jpg'
 import ReactPaginate from 'react-paginate';
 
 
-const Toxin = (props) => (
+const Kampo = (props) => (
     <tr>            
-        <td >{props.toxin.LatinName}</td>
-        <td >{props.toxin.CommonName}</td>
-        <td >{props.toxin.Distribution}</td>
-        <td >{props.toxin.Location}</td>
-        <td >{props.toxin.ToxicPart}</td>
-        <td >{props.toxin.Phytotoxin}</td>
-        <td >{props.toxin.RelativeToxicity}</td>
-        <td >{props.toxin.PredictedLD50}</td>
-        <td >{props.toxin.HumanToxicity}</td>
-        <td >{props.toxin.AnimalToxicity}</td>                
+        <td >{props.kampo.LatinName}</td>
+        <td >{props.kampo.LatinPart}</td>
+        <td >{props.kampo.CommonName}</td>
+        <td >{props.kampo.Kanji}</td>
+        <td >{props.kampo.Katakana}</td>
+        <td >{props.kampo.Pinyin}</td>
+        <td >{props.kampo.TraditionalChinese}</td>
+        <td >{props.kampo.SimplifiedChinese}</td>                
     </tr>
 );
 
-    export default function ToxinList(props) {
-        const [toxins, setToxins] = useState ([]);
+    export default function KampoList(props) {
+        const [kampos, setKampos] = useState ([]);
         const [currentPage, setCurrentPage] = useState(0);
         const [totalPages, setTotalPages] = useState(0);
         
-        const itemsPerPage = 34;
+        const itemsPerPage = 29;
                       
         //this method fetches the list from the database.
         useEffect(() => {
-           async function getToxins (){
+           async function getKampos (){
                 try {              
 
-                    const response = await fetch(`http://localhost:5000/toxins`, {
+                    const response = await fetch(`http://localhost:5000/kampo`, {
                         method: 'GET',
                         headers: {
                             "Content-Type": "application/json",
@@ -44,10 +41,10 @@ const Toxin = (props) => (
                         
                     }
                     
-                    const toxins = await response.json();
-                    setToxins(toxins);
-                    setTotalPages(Math.ceil(toxins.length / itemsPerPage));
-                    console.log(toxins);
+                    const kampos = await response.json();
+                    setKampos(kampos);
+                    setTotalPages(Math.ceil(kampos.length / itemsPerPage));
+                    console.log(kampos);
                     
 
                     }
@@ -55,59 +52,49 @@ const Toxin = (props) => (
                     console.log(err);
                 }
             }
-            getToxins();
+            getKampos();
             return;
-        }, [toxins.length]);
-
-        async function deleteToxin(id) {
-            await fetch(`http://localhost:5000/${id}`, {
-                method: "DELETE"
-            });
-            const newToxins = toxins.filter((el) => el._id !== id);
-            setToxins(newToxins);
-        }
+        }, [kampos.length]);
 
         const startIndex = currentPage * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-        const subset = toxins.slice(startIndex, endIndex);
+        const subset = kampos.slice(startIndex, endIndex);
       
         const handlePageChange = (selectedPage) => {
           setCurrentPage(selectedPage.selected);
         };
 
         //This method will map the list to the table
-        function toxinList() {
-            return subset.map((toxin) => {
+        function kampoList() {
+            return subset.map((kampo) => {
                     return (                        
-                            <Toxin                            
-                            toxin={toxin}
-                            key={toxin._id}             
+                            <Kampo                            
+                            kampo={kampo}
+                            key={kampo._id}             
                             /> 
                     );
             });
         }
         
 
-        //this following section will display the table with the toxins
+        //this following section will display the table with the kampos
         return (       
             <div className={props.className} >
-                <h2>Plant Toxins</h2>
-                    <table name='Plant Toxins' action="http://localhost:5000/toxins" className={props.className} style={{ marginTop: 20 }}>
+                <h2>Kampo: Traditional Japanese Medicine</h2>
+                    <table name='Kampo' action="http://localhost:5000/kampo" className={props.className} style={{ marginTop: 20 }}>
                         <thead> 
                             <tr>                                            
                                 <th>Latin Name</th>
+                                <th>Latin Part</th>
                                 <th>Common Name</th>
-                                <th>Distribution</th>
-                                <th>Location</th>
-                                <th>Toxic Part</th>
-                                <th>Phytotoxin</th>
-                                <th>Relative Toxicity</th>
-                                <th>LD50</th>
-                                <th>Human Toxicity</th>
-                                <th>Animal Toxicity</th>                                 
+                                <th>Kanji</th>
+                                <th>Katakana</th>
+                                <th>Pinyin</th>
+                                <th>Traditional Chinese</th>
+                                <th>Simplified Chinese</th>                                                               
                             </tr>
                         </thead>
-                    <tbody > {toxinList()}</tbody>                                    
+                    <tbody > {kampoList()}</tbody>                                    
                 </table>               
                 <ReactPaginate
                         className="pagination-container"
@@ -120,7 +107,7 @@ const Toxin = (props) => (
                         breakClassName='pagination-item'
                         pageRangeDisplayed={3}                           
                         pageCount={totalPages}
-                        onPageChange={handlePageChange}                        
+                        onPageChange={handlePageChange}
                         renderOnZeroPageCount={null}
                     />
             </div>                                                                               

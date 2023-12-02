@@ -1,8 +1,8 @@
 //https://react.semantic-ui.com/collections/menu/#types-tabular-on-top - accessed 22/09/2021
 import React, { Component } from 'react'
-import {Menu, Segment} from 'semantic-ui-react'
+import {Menu} from 'semantic-ui-react'
 import ToxinList from './ToxinList.jsx'
-import Background from '../img/background.jpg'
+import KampoList from './KampoList.jsx'
 import '../index.js'
 import './NavMenu.css'
 
@@ -24,12 +24,27 @@ export default class MenuExampleTabularOnTop extends Component {
             onClick={this.handleItemClick}
           />
           <Menu.Item
+            name='Kampo'
+            active={activeItem === 'Kampo'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
             name='Plant Toxins'
             active={activeItem === 'Plant Toxins'}
             onClick={this.handleItemClick}
           />        
-        </Menu>        
-        {activeItem === 'Plant Toxins' ? <ToxinList className='table'/> : <ToxinList className='non-table'/>}        
+        </Menu>              
+        {function() {
+        switch(activeItem) {
+         case 'Kampo':
+          return <KampoList className='table'/>;
+        case 'Plant Toxins':
+          return <ToxinList className='table'/>;
+         default:
+          return <KampoList className='non-table'/>;
+         }
+        }
+      ()}       
       </div>
     )
   }
