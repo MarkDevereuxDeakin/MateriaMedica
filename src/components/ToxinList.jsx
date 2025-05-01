@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import Background from '../img/background.jpg'
+import Background from '../img/background.png'
 import ReactPaginate from 'react-paginate';
 
 

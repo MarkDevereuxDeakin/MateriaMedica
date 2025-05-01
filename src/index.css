@@ -1,12 +1,47 @@
-body {
-    background-image: url('./img/background.jpg');
+/*body {
+    background-image: url('./img/background.png');
     background-size: cover;
     background-position: top right;
     background-blend-mode: multiply;
-    /*background-color:black;*/
+    background-color:black;
     width: 85%;
     margin: auto;
+}*/
+
+body {
+  background-color: #f5f5f2;
+  font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('./img/background.png');
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff80;
+  margin-top: 20px;
+}
+
+.th {
+  background-color: #4e733d;
+  color: white;
+  padding: 10px;
+}
+
+.td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.h2 {
+  font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+  color: #4e733d;
+  margin-top: 20px;
+}
+
 
 .container {
     background-color: transparent;    
@@ -20,7 +55,7 @@ body {
     color: #19681994;
 }
 
-
+/*
 .table {
     visibility:visible;
     background-color: #FFFFFF;
@@ -28,7 +63,7 @@ body {
     text-align: center;
     width: 100%;
     
-}
+}*/
 
 .non-table {
   visibility:hidden;
@@ -38,7 +73,7 @@ body {
   width: 100%;
   
 }
-
+/*
 td {
     background-color: #FFFFFF;
     text-align: auto;
@@ -61,7 +96,7 @@ th {
     padding-top: 10px;
     padding-bottom:10px;
     
-}
+}*/
 
 .footer {
     background-color: #FFFFFF;
@@ -75,6 +110,7 @@ th {
     list-style-type: none;
     padding-top: 5px;
     padding-bottom: 15px;
+    margin-top: 20px;
     margin-bottom:0px;
     width: 100%;
     justify-content: center;
@@ -145,3 +181,31 @@ th {
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .navbar-title {
+        font-size: 1.2rem;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+    }
+}
