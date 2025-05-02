@@ -1,0 +1,144 @@
+/* Reset some default styles */
+body, h1, h2, h3, h4, p, table, th, td {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans', 'Roboto', 'Segoe UI', Arial, sans-serif;
+    background-color: #f9f8f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header / Navigation */
+header {
+    background-color: #4e733d;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Title */
+.main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #3e5f2d;
+    margin-bottom: 20px;
+}
+
+/* Button-like tabs */
+.tab-button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: 2px solid #4e733d;
+    background-color: #fff;
+    color: #4e733d;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab-button.active, .tab-button:hover {
+    background-color: #4e733d;
+    color: #fff;
+}
+
+/* Tables */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff80;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #dbe8d2;
+    color: #3e5f2d;
+    font-size: 1.1rem;
+}
+
+td {
+    font-size: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f7f3;
+}
+
+tr:hover {
+    background-color: #e9f2e4;
+}
+
+/* Footer / Bottom Navbar */
+.footer {
+    background-color: #4e733d;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+.footer a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    th, td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+}

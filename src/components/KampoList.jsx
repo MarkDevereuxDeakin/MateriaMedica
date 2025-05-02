@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import ReactPaginate from 'react-paginate';
+import '../MateriaMedica.css';
 
 
 const Kampo = (props) => (
